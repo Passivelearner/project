@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalEventComponent } from './faculty-dashboard/modal-event/modal-event.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     SignInComponent,
     SignUpComponent,
     ProgramComponent,
-    ModalEventComponent
+    ModalEventComponent,
+    FacultyPartnersComponent
   ],
   imports: [
     BrowserModule,

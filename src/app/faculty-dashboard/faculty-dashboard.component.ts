@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { ModalEventComponent } from '../faculty-dashboard/modal-event/modal-event.component';
-import { Dialog } from '@angular/cdk/dialog';
+import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-faculty-dashboard',
@@ -9,5 +9,7 @@ import { Dialog } from '@angular/cdk/dialog';
 })
 export class FacultyDashboardComponent{
 
+  constructor(public dialog: Dialog) {}
  
+  
 }

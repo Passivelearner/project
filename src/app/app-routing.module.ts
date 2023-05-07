@@ -9,6 +9,7 @@ import { PartnershipComponent } from './partnership/partnership.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProgramComponent } from './program/program.component';
+import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.component';
 
 const routes: Routes = [
   {path: '', component: SignInComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'manage-account', component: AdminManageAccountComponent},
   {path: 'partnership', component: PartnershipComponent},
   {path: 'faculty', component: FacultyDashboardComponent},
+  {path: 'faculty-partners', component: FacultyPartnersComponent},
 
 ];
 
