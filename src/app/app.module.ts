@@ -16,6 +16,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.component';
 import { FacultyComponent } from './faculty/faculty.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { FacultyComponent } from './faculty/faculty.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

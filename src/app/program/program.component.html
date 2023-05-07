@@ -147,91 +147,38 @@
                            <img class="object-cover" src="assets/image/event-2.jpg">
                        </div>
            
-                       <div>
-                           <img class="object-cover" src="assets/image/event-3.jpg">
-                       </div>
-                       <div>
-                           <img class="object-cover" src="assets/image/event-4.jpg">
-                       </div>
+    
                    </div>
                    <!-- list of participant -->
-                   <div class="w-full h-[300px] mt-3">
+                   <div class="w-full h-[500px] mt-3">
                         <div class="p-3">
-                            <strong class="text-primary text-[20px] font-extrabold">List of Participant</strong>
+                            <strong class="text-primary text-[20px] font-extrabold">List of Programs</strong>
                         </div>
                         <!-- table -->
-                        <div class="w-full h-[250px] bg-based rounded overflow-y-auto scrollbar-hide">
+                        <div class="w-full h-[360px] bg-based rounded overflow-y-auto scrollbar-hide">
                             <table class="border-collapse table-auto w-full">
                                 <thead class="w-full">
                                     <tr class="flex items-center p-2 border-b border-[#05060f0a]/50">
-                                        <td class="flex items-center w-full">ID</td>
-                                        <td class="flex items-center w-full">Name</td>
-                                        <td class="flex items-center w-full">Yr/Sec</td>
+                                        <td class="flex items-center w-full"><strong>Program Title</strong></td>
+                                        <td class="flex items-center w-full"><strong>Place</strong></td>
+                                
+                                        <td class="flex items-center w-full"><strong>Leader Name</strong></td>
+                                        <td class="flex items-center w-full"><strong>Partner Name</strong></td>
                                     </tr>
                                 </thead>
                                 <tbody class="w-full">
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
+                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out" *ngFor="let x of programs">
+                                        <td class="flex items-center w-full">{{x.ProgramTitle}}</td>
+                                        <td class="flex items-center w-full">{{x.Place}}</td>
+                    
+                                        <td class="flex items-center w-full">{{x.LeaderName}}</td>
+                                        <td class="flex items-center w-full">{{x.PartnerName}}</td>
                                     </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr><tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr><tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out">
-                                        <td class="flex items-center w-full">2019115282</td>
-                                        <td class="flex items-center w-full">samplenamealeido</td>
-                                        <td class="flex items-center w-full">BSIT 4J</td>
-                                    </tr>
-
-
+                                    
                                 </tbody>
+
                             </table>
+                        
                         </div>
 
                    </div>

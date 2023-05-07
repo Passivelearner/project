@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './admin-manage-account.component.html',
   styleUrls: ['./admin-manage-account.component.scss']
 })
-export class AdminManageAccountComponent {
-
+export class AdminManageAccountComponent implements OnInit{
+users:any
   
-constructor(public route:Router){}
+constructor(public route:Router, private http:HttpClient){}
+ngOnInit(){
+  this.http.get<any>('http://127.0.0.1:8000/api/admin/users')
+    .subscribe(data => { console.log(data); this.users=data }, error => { console.log(error) })
+}
 
   dashboard(){
     this.route.navigate(["admin-page"])
