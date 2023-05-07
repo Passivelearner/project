@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.component';
 import { FacultyComponent } from './faculty/faculty.component';
+import { MoreInfoComponent } from './faculty/more-info/more-info.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { FacultyComponent } from './faculty/faculty.component';
     SignUpComponent,
     ProgramComponent,
     FacultyPartnersComponent,
-    FacultyComponent
+    FacultyComponent,
+    MoreInfoComponent
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

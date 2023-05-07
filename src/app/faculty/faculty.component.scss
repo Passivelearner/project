@@ -1,0 +1,105 @@
+.card {
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    background: #ffffff;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    -webkit-transition: 0.5s ease-out;
+    transition: 0.5s ease-out;
+    overflow: visible;
+   }
+   
+   .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+   }
+   
+   .card-button {
+    -webkit-transform: translate(-50%, 125%);
+        -ms-transform: translate(-50%, 125%);
+            transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background: #a30401;
+    animation: anim 2.5s infinite ease-in-out;background: #a30401;
+    background: -webkit-linear-gradient(57deg, #a30401 0%, #ff383f 50%, #e138ff 100%);
+    background: linear-gradient(57deg, #a30401 0%, #ff383f 50%, #e138ff 100%);
+    background-size: 400% 400%;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+   }
+   
+   .text-body {
+    color: rgb(134, 134, 134);
+   }
+   
+   /*Text*/
+   .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   
+   /*Hover*/
+   .card:hover {
+    border-color: #a30401;
+    -webkit-box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+   }
+   
+   .card:hover .card-button {
+    -webkit-transform: translate(-50%, 50%);
+        -ms-transform: translate(-50%, 50%);
+            transform: translate(-50%, 50%);
+    opacity: 1;
+   }
+
+   .input {
+    width: 100%;
+    height: 44px;
+    background-color: #05060f0a;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .9rem;
+    font-weight: bold;
+    color: #05060f99;
+    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+  }
+  
+  .input:hover, .input:focus, .input-group:hover .input {
+    outline: none;
+    border-color: #FF1E1E;
+  }
+  
+  .input-group:hover .label, .input:focus {
+    color: #05060fc2;
+  }
+
+  textarea{
+    width: 100%;
+    height: 210px;
+    background-color: #05060f0a;
+    border-radius: .5rem;
+    outline:none;
+    padding: 10px;
+  }

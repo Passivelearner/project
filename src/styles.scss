@@ -14,6 +14,10 @@
         @apply w-full flex items-center p-1 text-[12px] overflow-hidden;
     }
 }
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
   
 .activate{
     color:#ffff;
@@ -39,6 +43,7 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
 
+
+html, body { height: 100%; }
+body {  margin: 0; font-family: 'Montserrat', sans-serif; }
