@@ -18,6 +18,7 @@ import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.co
 import { FacultyComponent } from './faculty/faculty.component';
 import { MoreInfoComponent } from './faculty/more-info/more-info.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { MoreInfoComponent } from './faculty/more-info/more-info.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

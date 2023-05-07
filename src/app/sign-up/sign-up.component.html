@@ -16,23 +16,28 @@
                     <div class="w-full flex justify-between gap-2">
                         <div class="input-group">
                             <label class="label">First Name</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input autocomplete="off"  class="input" type="text" >
+                            <div></div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Middle Name</label>
+                            <input autocomplete="off"  class="input" type="text" >
                             <div></div>
                         </div>
                         <div class="input-group">
                             <label class="label">Last Name</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input autocomplete="off" class="input" type="text" >
                             <div></div>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label class="label">Username</label>
-                        <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                        <label class="label">Email</label>
+                        <input autocomplete="off"  class="input" type="text" (keyup)="email($event)">
                         <div></div>
                     </div>
                     <div class="input-group">
                         <label class="label">Password</label>
-                        <input autocomplete="off" name="Email" id="Email" class="input" type="password">
+                        <input autocomplete="off"  class="input" type="password" (keyup)="password($event)">
                         <div></div>
                     </div>
                 </div>
