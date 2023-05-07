@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-faculty-partners',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./faculty-partners.component.scss']
 })
 export class FacultyPartnersComponent {
+
+  constructor(public route:Router){}
+
+  faculty(){
+    this.route.navigate(["faculty"])
+  }
 
 }
