@@ -27,7 +27,6 @@ export class MoreInfoComponent implements OnInit{
   }
 
   generatePartnerSpecific(){
-
     this.http
     .get<any>(
       this._auth.apiUrl +

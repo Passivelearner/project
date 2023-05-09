@@ -103,4 +103,40 @@ export class ProgramComponent implements OnInit{
   logout(){
     this.route.navigate(['/'])
   }
+
+  GetProgramReport() {
+    this.http
+      .get<any>(
+        this._auth.apiUrl +
+          '/getProgramSummary',
+        this._auth.headers
+      )
+      .subscribe(
+        (data) => {
+          console.log(data);
+          const byteArray = new Uint8Array(
+            atob(data.pdf)
+              .split('')
+              .map((char) => char.charCodeAt(0))
+          );
+          const file = new Blob([byteArray], { type: 'application/pdf' });
+          const fileURL = URL.createObjectURL(file);
+          let pdfName = 'reports.pdf';
+          let newVariable: any = window.navigator;
+          if (newVariable && newVariable.msSaveOrOpenBlob) {
+            newVariable.msSaveOrOpenBlob(file, pdfName);
+          } else {
+            window.open(
+              fileURL,
+              'newWin',
+              'modal=yes,width=800,height=1000,resizable=no,scrollbars=no'
+            );
+          }
+        },
+        (error) => {
+          console.error(error);
+          console.log('error');
+        }
+      );
+  }
 }
