@@ -12,6 +12,7 @@ import { UpdateProfileComponent } from '../faculty/update-profile/update-profile
 })
 export class FacultyComponent implements OnInit{
   program:any
+  filteredprogram:any;
   id:string = "";
   firstname:any;
   lastname:string = "";
@@ -30,6 +31,7 @@ export class FacultyComponent implements OnInit{
     this.http.get("http://127.0.0.1:8000/api/programs",{headers:header})
     .subscribe((data:any)=>{
       this.program = data
+      this.filteredprogram = data
       console.log(this.program)
     })
 
@@ -52,5 +54,18 @@ export class FacultyComponent implements OnInit{
   }
   updateprofile(){
     this.dialog.open(UpdateProfileComponent)
+  }
+
+  onKeyupEvent(event:any){
+    if (event.target.value == ''){
+      this.filteredprogram = this.program
+    } else {
+      this.filteredprogram = this.program.filter((p:any) => {
+        return p.ProgramTitle.toLowerCase().includes(event.target.value.toLowerCase())
+      })
+
+    }
+
+
   }
 }

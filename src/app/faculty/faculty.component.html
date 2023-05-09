@@ -43,7 +43,7 @@
         <section class="w-[80%] h-screen p-5 overflow-y-auto">
             <div class="bg-based rounded-[10px] w-full p-4 flex justify-between items-center">
                 <div class="input-group">
-                    <input autocomplete="off" name="search" id="Email" placeholder="Search" class="input" type="search">
+                    <input autocomplete="off" name="search" id="Email" placeholder="Search" class="input" type="search" (keyup)="onKeyupEvent($event)">
                     <div></div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="grid grid-cols-5 gap-4" >
-                <form  *ngFor="let x of program">
+                <form  *ngFor="let x of filteredprogram">
                     <div class="card pb-8 mt-4">
                         <div class="card-details ">
                           <p class="text-title capitalize pb-1" >{{x.ProgramTitle}}</p>
