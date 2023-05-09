@@ -126,7 +126,7 @@
                         <table class="border-collapse w-full flex flex-col gap-3">
                             <tr class="w-full bg-based rounded-[10px] p-2 flex items-center gap-2" *ngFor="let x of partners" id="btn_value">
                                 <td class="table-part w-[20%] mt-3">
-                                    <img src="assets/image/Accenture-Emblem.png" width="50px">
+                                    <img [src]="_auth.serverUrl + '/storage/' + x.PartnerImageUrl" width="50px">
                                 </td>
                                 <td class=" w-full flex flex-col p-1 text-[12px] overflow-hidden ">
                                     <strong>{{x.PartnerName}}</strong>

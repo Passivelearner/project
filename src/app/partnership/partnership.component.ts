@@ -28,7 +28,7 @@ export class PartnershipComponent implements OnInit{
   MOAfileToUpload: File | null = null;
   ImageToUpload: File | null = null;
   value_new_id:any;
-  constructor(public route:Router, private http:HttpClient, private _auth: AuthService, public dialog:Dialog){}
+  constructor(public route:Router, private http:HttpClient, public _auth: AuthService, public dialog:Dialog){}
   ngOnInit(){
     console.log('Users')
       console.log('Token:' + this._auth.token)

@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class FacultyPartnersComponent implements OnInit{
   partners:any
   filteredpartners: any;
-   constructor(public route:Router, private http:HttpClient,public dialog:Dialog, private _auth:AuthService){}
+   constructor(public route:Router, private http:HttpClient,public dialog:Dialog, public _auth:AuthService){}
    ngOnInit(){
      this.http.get<any>(this._auth.apiUrl + '/partners')
        .subscribe(data => { console.log(data); 

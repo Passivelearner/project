@@ -1,5 +1,6 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-see-more',
@@ -11,7 +12,7 @@ export class SeeMoreComponent implements OnInit{
   user_id:string ="";
   partners_data:any
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient, public auth: AuthService){}
 
   ngOnInit(): void {
       
