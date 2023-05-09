@@ -45,7 +45,7 @@
                 <!-- header -->
                 <div class="bg-based rounded-[10px] w-full p-4 flex justify-between items-center">
                     <div class="input-group">
-                        <input autocomplete="off" name="search" id="Email" placeholder="Search" class="input" type="search">
+                        <input autocomplete="off" name="search" id="Email" placeholder="Search" class="input" type="search" (keyup)="onKeyupEvent($event)">
                         <div></div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <section class="w-full h-screen mt-3 grid grid-cols-4 gap-2">
-                    <div class="w-full h-[300px] p-4 flex items-center justify-center bg-based rounded-[4px] " *ngFor="let x of partners">
+                    <div class="w-full h-[300px] p-4 flex items-center justify-center bg-based rounded-[4px] " *ngFor="let x of filteredpartners">
                         <div class="w-full h-full flex flex-col justify-around">
                             <div class="w-full flex items-center justify-center" >
                                 <img src="assets/image/Accenture-Emblem.png" width="80px">

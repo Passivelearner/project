@@ -63,9 +63,8 @@ export class FacultyComponent implements OnInit{
       this.filteredprogram = this.program.filter((p:any) => {
         return p.ProgramTitle.toLowerCase().includes(event.target.value.toLowerCase())
       })
-
     }
-
-
   }
+
+
 }

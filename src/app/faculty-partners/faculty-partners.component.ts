@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Dialog } from '@angular/cdk/dialog';
 import { ViewDetailsComponent } from '../faculty-partners/view-details/view-details.component';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-faculty-partners',
   templateUrl: './faculty-partners.component.html',
@@ -10,11 +11,14 @@ import { ViewDetailsComponent } from '../faculty-partners/view-details/view-deta
 })
 export class FacultyPartnersComponent implements OnInit{
   partners:any
-     
-   constructor(public route:Router, private http:HttpClient,public dialog:Dialog){}
+  filteredpartners: any;
+   constructor(public route:Router, private http:HttpClient,public dialog:Dialog, private _auth:AuthService){}
    ngOnInit(){
-     this.http.get<any>('http://127.0.0.1:8000/api/partners/')
-       .subscribe(data => { console.log(data); this.partners=data }, error => { console.log(error) })
+     this.http.get<any>(this._auth.apiUrl + '/partners')
+       .subscribe(data => { console.log(data); 
+                            this.partners=data 
+                            this.filteredpartners = data
+                          }, error => { console.log(error) })
    }
   faculty(){
     this.route.navigate(["faculty"])
@@ -25,5 +29,17 @@ export class FacultyPartnersComponent implements OnInit{
     sessionStorage.setItem("partner_id", value_new_id)
     this.dialog.open(ViewDetailsComponent)
 }
+
+onKeyupEvent(event:any){
+  if (event.target.value == ''){
+    this.filteredpartners = this.partners
+  } else {
+    this.filteredpartners = this.partners.filter((p:any) => {
+      return p.PartnerName.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+  }
+}
+
+
 
 }
