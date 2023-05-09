@@ -22,6 +22,9 @@ import { UpdateInfoComponent } from './admin-manage-account/update-info/update-i
 import { UpdateProfileComponent } from './faculty/update-profile/update-profile.component';
 import { SeeMoreComponent } from './partnership/see-more/see-more.component';
 import { ViewDetailsComponent } from './faculty-partners/view-details/view-details.component';
+import { AuthService } from './auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 
@@ -46,17 +49,19 @@ import { ViewDetailsComponent } from './faculty-partners/view-details/view-detai
   ],
   imports: [
     BrowserModule,
-   
     MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     FormsModule,
-    
+    ReactiveFormsModule
   ],
 
-  providers: [],
+  providers: [AuthService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

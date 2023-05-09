@@ -1,7 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-program',
@@ -10,31 +12,62 @@ import { NgModel } from '@angular/forms';
 })
 export class ProgramComponent implements OnInit{
   programs:any;
-  program_title:string ="";
-  program_start:string ="";
-  program_end:string ="";
-  program_place:string ="";
-  program_details:string ="";
-  program_lead:string ="";
-  program_member:string ="";
+  program_title = new FormControl('');
+  program_start= new FormControl('');
+  program_end= new FormControl('');
+  program_place = new FormControl('');
+  program_details= new FormControl('');
+  program_lead = new FormControl('');
+  program_partner = new FormControl('') ;
 
-
-    
-  constructor(public route:Router, private http:HttpClient){}
+  FacultyLeadDropDownValues : any;
+  PartnerDropDownValues : any;
+  
+  
+  constructor(public route:Router, private http:HttpClient, private _auth: AuthService){}
 
   ngOnInit(){
-    this.http.get<any>('http://127.0.0.1:8000/api/programs')
-      .subscribe(data => { console.log(data); this.programs=data }, error => { console.log(error) })
+    this.http.get<any>(this._auth.apiUrl + '/programs')
+      .subscribe(data => { 
+        console.log(data); 
+        this.programs=data }, 
+        error => { console.log(error) })
+
+      this.http.get<any>(this._auth.apiUrl + '/faculty/dropdownValues')
+      .subscribe(data => {
+       this.FacultyLeadDropDownValues = data
+       console.log(data)
+      }, (error) => {
+       console.error(error)
+      })
+
+    this.http.get<any>(this._auth.apiUrl + '/partners')
+      .subscribe(data => {
+      this.PartnerDropDownValues = data
+      console.log(data)
+     }, (error) => {
+      console.error(error)
+     })
   }
 
 
-  programs_data(){
+  createProgram(){
 
-    console.log(this.program_title)
-    console.log(this.program_place)
-    console.log(this.program_details)
-    console.log(this.program_lead)
-    console.log(this.program_member)
+    this.http.post<any>(this._auth.apiUrl + '/programs/add', {
+      ProgramTitle : this.program_title.value,
+      Start_Date : this.program_start.value,
+      End_Date : this.program_end.value,
+      Place : this.program_place.value,
+      Program_Details : this.program_details.value,
+      Program_Flow_Url : 'asdsadsadasdsadd',
+      PartnerId : this.program_partner.value,
+      ProgramLeadId : this.program_lead.value,
+
+    }).subscribe(data => {
+      console.log(data)
+      this.ngOnInit();
+    }, error => console.log(error))
+
   }
   dashboard(){
     this.route.navigate(["admin-page"])
@@ -61,6 +94,6 @@ export class ProgramComponent implements OnInit{
     this.program_lead=event.target.value
   }
   member(event:any){
-    this.program_member=event.target.value
+    this.program_partner=event.target.value
   }
 }

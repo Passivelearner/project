@@ -74,24 +74,24 @@
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
                             <div class="input-group w-full">
                                 <label class="label">Contact Person</label>
-                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.ContactPerson">
+                                <input autocomplete="off" class="input" type="text" [formControl]="ContactPerson">
                                 <div></div>
                             </div>
                             <div class="input-group w-full">
                                 <label class="label">Contact#</label>
-                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.ContactNumber">
+                                <input autocomplete="off" class="input" type="text" [formControl]="ContactNumber">
                                 <div></div>
                             </div>
                         </div>
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
                             <div class="input-group w-full">
                                 <label class="label">Partnership Start</label>
-                                <input autocomplete="off" id="start_calendar" class="input" type="date">
+                                <input autocomplete="off" id="start_calendar" class="input" type="date" [formControl]="Start_Date">
                                 <div></div>
                             </div>
                             <div class="input-group w-full">
                                 <label class="label">Partnership Expiration</label>
-                                <input autocomplete="off" id="end_calendar" class="input" type="date">
+                                <input autocomplete="off" id="end_calendar" class="input" type="date" [formControl]="End_Date">
                                 <div></div>
                             </div>
                         </div>
@@ -99,19 +99,19 @@
                         <div class="bg-based w-full p-2 rounded">
                             <div class="input-group">
                                 <label class="label">Company Name</label>
-                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.Partnername">
+                                <input autocomplete="off" class="input" type="text" [formControl]="Partnername">
                                 <div></div>
                             </div>
                         </div>
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
                             <div class="input-group w-full">
-                                <label class="label">MOA</label>
-                                <input autocomplete="off" id="MOA_FILE" class="input" type="file">
+                                <label class="label">Memorandum Of Agreement</label>
+                                <input autocomplete="off" id="MOA_FILE" class="input" type="file" [formControl]="MOAFile" (change)="onMoaInput($event)">
                                 <div></div>
                             </div>
                             <div class="input-group w-full">
                                 <label class="label">Company Profile</label>
-                                <input autocomplete="off" class="input" type="file">
+                                <input autocomplete="off" class="input" type="file" [formControl]="PartnerImage" (change)="onPartnerImageUpload($event)">
                                 <div></div>
                             </div>
                         </div>

@@ -75,7 +75,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Title</label>
-                            <input class="input" type="text" (keyup)="title($event)">
+                            <input class="input" type="text" [formControl]="program_title">
                             <div></div>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                     <div class="grid grid-cols-2 gap-2 bg-based w-full mt-2 rounded p-3">
                         <div class="input-group">
                             <label class="label">Program start</label>
-                            <input autocomplete="off" class="bg-[#05060f0a] rounded w-full p-2" type="datetime-local">
+                            <input autocomplete="off" class="bg-[#05060f0a] rounded w-full p-2" type="date" [formControl]="program_start">
                             <div></div>
                         </div>
                         <div class="input-group">
                             <label class="label">Program End</label>
-                            <input autocomplete="off" class="bg-[#05060f0a] rounded w-full p-2" type="datetime-local">
+                            <input autocomplete="off" class="bg-[#05060f0a] rounded w-full p-2" type="date" [formControl]="program_end">
                             <div></div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Place</label>
-                            <input class="input" type="text" (keyup)="place($event)">
+                            <input class="input" type="text" [formControl]="program_place" >
                             <div></div>
                         </div>
                     </div>
@@ -104,27 +104,31 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Details</label>
-                            <textarea type="text" (keyup)="details($event)"></textarea>
+                            <textarea type="text" [formControl]="program_details" ></textarea>
                             <div></div>
                         </div>
                     </div>
 
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
-                            <label class="label">Program Lead</label>
-                            <input class="input" autocomplete="off" (keyup)="lead($event)">
+                            <label for="lead" class="label">Program Lead</label>
+                            <select id="lead" name="lead" [formControl]="program_lead">
+                                <option *ngFor="let f of FacultyLeadDropDownValues" value="{{f.id}}">{{f.Name}}</option>
+                            </select>
                             <div></div>
                         </div>
                     </div>
 
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
-                            <label class="label">Program Member</label>
-                            <input class="input" autocomplete="off" (keyup)="member($event)">
+                            <label class="label">Partner</label>
+                            <select id="lead" name="lead" [formControl]="program_partner">
+                                <option *ngFor="let p of PartnerDropDownValues" value="{{p.PartnerId}}">{{p.PartnerName}}</option>
+                            </select>
                             <div></div>
                         </div>
                     </div>
-                    <button class="btn-primary mt-2" (click)="programs_data()">
+                    <button class="btn-primary mt-2" (click)="createProgram()">
                         Post
                     </button>
                     <br><br>

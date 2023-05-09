@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UpdateInfoComponent } from '../admin-manage-account/update-info/update-info.component';
 import { Dialog } from '@angular/cdk/dialog';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin-manage-account',
@@ -14,9 +15,9 @@ export class AdminManageAccountComponent implements OnInit{
     num:any;
     num2:any;
     approved:string = "1"
-    constructor(public route:Router, private http:HttpClient, public dialog:Dialog){}
+    constructor(public route:Router, private http:HttpClient, public dialog:Dialog, private _auth: AuthService){}
     ngOnInit(){
-      this.http.get<any>('http://127.0.0.1:8000/api/admin/users')
+      this.http.get<any>(this._auth.apiUrl + '/admin/users')
         .subscribe(data => {
           console.log(data);
           this.users=data
@@ -25,18 +26,21 @@ export class AdminManageAccountComponent implements OnInit{
       
     }
     //updateinfo
-    updateinfo(){
+    updateinfo(id: string){
       this.dialog.open(UpdateInfoComponent);
     }
 
-    approved_btn(){
+    toggleAccountActivation(id:string){
+        this.http.post<any>(this._auth.apiUrl + '/admin/toggle', { ID : id })
+                 .subscribe(data => {
+                  console.log(data)
+                  this.ngOnInit();
+                 }, error => {
+                  console.log(error)
+                 })
+    }   
 
-      this.http.get<any>('http://127.0.0.1:8000/api/admin/users')
-      .subscribe((response:any) => {
-        response.data.IsApproved = this.approved
-        console.log(response)
-      }, error => { console.log(error) })
-    }
+    
 
       dashboard(){
         this.route.navigate(["admin-page"])
