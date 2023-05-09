@@ -40,6 +40,8 @@ onKeyupEvent(event:any){
   }
 }
 
-
+goToLogin(){
+  this.route.navigate([''])
+}
 
 }

@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class AdminManageAccountComponent implements OnInit{
     users:any
+    filteredusers: any;
     num:any;
     num2:any;
     approved:string = "1"
@@ -22,6 +23,7 @@ export class AdminManageAccountComponent implements OnInit{
         .subscribe(data => {
           console.log(data);
           this.users=data
+          this.filteredusers = data;
         }, error => { console.log(error) })
 
       
@@ -55,5 +57,15 @@ export class AdminManageAccountComponent implements OnInit{
       }
       partners_management(){
         this.route.navigate(["partnership"])
+      }
+
+      onKeyupEvent(event:any){
+        if (event.target.value == ''){
+          this.filteredusers = this.users
+        } else {
+          this.filteredusers = this.users.filter((p:any) => {
+            return p.FName.toLowerCase().includes(event.target.value.toLowerCase()) || p.LName.toLowerCase().includes(event.target.value.toLowerCase()) || p.email.toLowerCase().includes(event.target.value.toLowerCase()) 
+          })
+        }
       }
 }
