@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, Inject, OnInit, Injector} from '@angul
 import  {MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class UpdateInfoComponent implements OnInit{
   
-  constructor(private _auth: AuthService, @Inject(MAT_DIALOG_DATA) public data: any, private injector: Injector) {}
+  constructor(private _auth: AuthService, private http: HttpClient) {}
 
   FName = new FormControl('');
   LName = new FormControl('');
@@ -21,13 +22,27 @@ export class UpdateInfoComponent implements OnInit{
   Contact = new FormControl('');
   MStatus = new FormControl('');
 
+
+
   ngOnInit(){
-    console.log(this.injector.get(MAT_DIALOG_DATA, null));
-    console.log(this.data);
+    
   }
 
-  CLICK(){
-    console.log(this.data);
+  updateUserInfo(){
+    const userId = localStorage.getItem('UpdateId');
+    this.http.post<any>(this._auth.apiUrl + '/UpdateInfo', {
+      id : userId,
+      fname : this.FName.value,
+      lname : this.LName.value,
+      bdate : this.BDate.value,
+      gender : this.Gender.value,
+      mobileNo : this.Contact.value,
+      maritalstatus : this.MStatus.value,
+    }).subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.error(error)
+    })
   }
 
 }

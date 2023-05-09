@@ -4,6 +4,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Dialog } from '@angular/cdk/dialog';
 import { SeeMoreComponent } from '../partnership/see-more/see-more.component';
 import { FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-partnership',
   templateUrl: './partnership.component.html',
@@ -27,9 +28,9 @@ export class PartnershipComponent implements OnInit{
   MOAfileToUpload: File | null = null;
   ImageToUpload: File | null = null;
   value_new_id:any;
-  constructor(public route:Router, private http:HttpClient,public dialog:Dialog){}
+  constructor(public route:Router, private http:HttpClient, private _auth: AuthService, public dialog:Dialog){}
   ngOnInit(){
-    this.http.get<any>('http://127.0.0.1:8000/api/partners')
+    this.http.get<any>(this._auth.apiUrl + '/partners')
       .subscribe(data => { console.log(data); this.partners=data }, error => { console.log(error) })
 
       
@@ -54,7 +55,7 @@ export class PartnershipComponent implements OnInit{
       'accept':'application/json'
     })
     
-    this.http.post("http://127.0.0.1:8000/api/partners/addpartner",this.formData,{headers:heading})
+    this.http.post( this._auth.apiUrl + "/partners/addpartner",this.formData,{headers:heading})
     .subscribe((response:any)=>{
       console.log(response)
       this.ngOnInit();

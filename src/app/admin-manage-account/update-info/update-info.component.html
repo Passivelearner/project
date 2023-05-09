@@ -6,25 +6,25 @@
                 <div class="w-full flex justify-between gap-2">
                     <div class="input-group w-full">
                         <label class="label">First Name</label>
-                        <input autocomplete="off"  class="input" type="text" >
+                        <input autocomplete="off"  class="input" type="text" [formControl]="FName">
                         <div></div>
                     </div>
                     <div class="input-group w-full">
                         <label class="label">Last Name</label>
-                        <input autocomplete="off" class="input" type="text" >
+                        <input autocomplete="off" class="input" type="text" [formControl]="LName">
                         <div></div>
                     </div>
                 </div>
                 <div class="w-full flex justify-between gap-2">
                     <div class="input-group w-full">
                         <label class="label">Birthdate</label>
-                        <input autocomplete="off" id="calendar" class="input" type="date" >
+                        <input autocomplete="off" id="calendar" class="input" type="date" [formControl]="BDate">
                         <div></div>
                     </div>
                     <div class="input-group w-full">
                         <label class="label">Gender</label>
-                        <select id="gender" class="bg-none input" >
-                            <option value="Male">Male</option>
+                        <select id="gender" class="bg-none input" [formControl]="Gender">
+                            <option value="Male" selected="selected">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
@@ -32,13 +32,13 @@
                 <div class="w-full flex justify-between gap-2">
                     <div class="input-group w-full">
                         <label class="label">Contact No.</label>
-                        <input autocomplete="off"  class="input" type="text" >
+                        <input autocomplete="off"  class="input" type="text" [formControl]="Contact">
                         <div></div>
                     </div>
                     <div class="input-group w-full">
                         <label class="label">Marital Status</label>
-                        <select id="stats" class="bg-none input">
-                            <option value="Single">Single</option>
+                        <select id="stats" class="bg-none input" [formControl]="MStatus">
+                            <option value="Single" selected="selected">Single</option>
                             <option value="Married">Married</option>
                             <option value="Divorce">Divorce</option>
                             <option value="Widows">Widow</option>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center mt-3">
-                    <button class="btn-primary w-full" (click)="CLICK()">
+                    <button class="btn-primary w-full" (click)="updateUserInfo()">
                         Update
                     </button>
                 </div>

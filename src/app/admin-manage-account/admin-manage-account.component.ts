@@ -15,6 +15,7 @@ export class AdminManageAccountComponent implements OnInit{
     num:any;
     num2:any;
     approved:string = "1"
+    dialogInstance : any = null;
     constructor(public route:Router, private http:HttpClient, public dialog:Dialog, private _auth: AuthService){}
     ngOnInit(){
       this.http.get<any>(this._auth.apiUrl + '/admin/users')
@@ -27,6 +28,7 @@ export class AdminManageAccountComponent implements OnInit{
     }
     //updateinfo
     updateinfo(id: string){
+      localStorage.setItem('UpdateId', id); 
       this.dialog.open(UpdateInfoComponent);
     }
 
