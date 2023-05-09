@@ -61,7 +61,7 @@
                         <p class="text-[20px]">Manage Account</p>
                     </div>
                     <div class="input-group">
-                        <input autocomplete="off" name="search" id="Email" placeholder="Search" class="input" type="search">
+                        <input type="text" name="search" placeholder="Search" />
                         <div></div>
                     </div>
                 </div>
@@ -91,38 +91,34 @@
                                 <td class="table-part">{{x.FName}}</td>
                                 <td class="table-part">{{x.LName}}</td>
                                 <td class="table-part">{{x.email}}</td>
-                                <td class="table-part">
-                                    <select name="user" id="users" class="bg-none">
-                                        <option value="volvo">Super Admin</option>
-                                        <option value="saab">Admin</option>
-                                        <option value="opel">Basic</option>
-                                    </select>
+                                <td class="table-part p-3">
+                                    <div *ngIf="x.IsAdmin == 1" value="Admin">Admin</div>
+                                    <div *ngIf="x.IsAdmin == 0" value="Basic">Faculty</div>
                                 </td>
                                 <td class="table-part">Status</td>
                                 <td class="table-part gap-2">
-                                    <button class="bg-primary p-1 text-based rounded w-full ">
-                                        Activate
+                                    <button (click)="updateinfo()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                        </svg>                                                                        
                                     </button>
-                                    <button class="p-1 w-full border-primary rounded border-[1px]">
-                                        Archive
+                                    <button (click)="approved_btn()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>                                                                                                                              
+                                    </button>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>                                                                                    
                                     </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <!-- paginator -->
-                <div class="w-full p-2 border-t-[1px] border-[#00000]">
-                    <div class="w-full flex justify-center items-center p-2 gap-2">
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
-                        <p>4</p>
-                        <p>5</p>
-                        <p>6</p>
-                        <p>7</p>
-                    </div>
-                </div>
+            
+               
             </div>
         </section>
     </div>

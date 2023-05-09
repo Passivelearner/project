@@ -40,6 +40,12 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                         </svg>                                                                                                           
+                        <p>Profile</p>
+                    </button>
+                    <button class="side-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                        </svg>                                                                                                           
                         <p>Log Out</p>
                     </button>
                 </div>
@@ -53,143 +59,21 @@
                     <div></div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <p>Manalad Julius</p>
-                    <img class="w-[50px] h-[50px] rounded-full" src="assets/image/profile.jpg">
+                    <p *ngFor="let data of firstname" class="text-[15px] font-bold capitalize">{{data.FName}}</p>
+                    <img class="w-[50px] h-[50px] rounded-full cursor-pointer" src="assets/image/profile.jpg" (click)="updateprofile()">
+                    <!-- dropdown -->
                 </div>
             </div>
-            <div class="w-full grid grid-cols-5 gap-6 mt-4">
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+            <div class="grid grid-cols-5 gap-4 p-8 ..." >
+                <form  *ngFor="let x of program">
+                    <div class="card pb-8">
+                        <div class="card-details ">
+                          <p class="text-title capitalize pb-1" >{{x.ProgramTitle}}</p>
+                          <p class="text-body overflow-hidden">{{x.Program_Details}}</p>
+                        </div>
+                        <button class="card-button " (click)="modal()">More info</button>
                     </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div><div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
-                <div class="card">
-                    <div class="card-details">
-                      <p class="text-title">Youth Serve</p>
-                      <p class="text-body overflow-hidden">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                    </div>
-                    <button class="card-button " (click)="modal()">More info</button>
-                </div>
+                </form>
             </div>
         </section>
     </div>

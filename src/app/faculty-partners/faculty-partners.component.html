@@ -56,19 +56,19 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <p>Manalad Julius</p>
-                        <img class="w-[50px] h-[50px] rounded-full" src="assets/image/profile.jpg">
+                        <img class="w-[50px] h-[50px] rounded-full " src="assets/image/profile.jpg">
                     </div>
                 </div>
                 <section class="w-full h-screen mt-3 grid grid-cols-4 gap-2">
-                    <div class="w-full h-[300px] p-4 flex items-center justify-center bg-based rounded-[4px]" >
+                    <div class="w-full h-[300px] p-4 flex items-center justify-center bg-based rounded-[4px] " *ngFor="let x of partners">
                         <div class="w-full h-full flex flex-col justify-around">
                             <div class="w-full flex items-center justify-center" >
                                 <img src="assets/image/bsu-logo.png" width="80px">
                             </div>
                         <div class="flex flex-col justify-evenly gap-3" >
                             <div >
-                                <p>company Name</p>
-                                <strong>Sample name</strong>
+                                <p>{{x.PartnerName}}</p>
+                                <strong>{{x.ContactPerson}}</strong>
                             </div>
                             <div>
                                 <p>Date Start</p>

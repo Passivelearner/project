@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule} from '@angular/material/dialog';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -17,6 +17,12 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FacultyPartnersComponent } from './faculty-partners/faculty-partners.component';
 import { FacultyComponent } from './faculty/faculty.component';
 import { MoreInfoComponent } from './faculty/more-info/more-info.component';
+import { FormsModule } from '@angular/forms';
+import { UpdateInfoComponent } from './admin-manage-account/update-info/update-info.component';
+import { UpdateProfileComponent } from './faculty/update-profile/update-profile.component';
+import { SeeMoreComponent } from './partnership/see-more/see-more.component';
+
+
 
 
 @NgModule({
@@ -30,17 +36,24 @@ import { MoreInfoComponent } from './faculty/more-info/more-info.component';
     ProgramComponent,
     FacultyPartnersComponent,
     FacultyComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    UpdateInfoComponent,
+    UpdateProfileComponent,
+    SeeMoreComponent,
+
   ],
   imports: [
     BrowserModule,
+   
     MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
-
+    FormsModule,
+    
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

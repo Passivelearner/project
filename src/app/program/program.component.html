@@ -75,7 +75,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Title</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input class="input" type="text" (keyup)="title($event)">
                             <div></div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Place</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input class="input" type="text" (keyup)="place($event)">
                             <div></div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Details</label>
-                            <textarea type="text"></textarea>
+                            <textarea type="text" (keyup)="details($event)"></textarea>
                             <div></div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Lead</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input class="input" autocomplete="off" (keyup)="lead($event)">
                             <div></div>
                         </div>
                     </div>
@@ -120,19 +120,11 @@
                     <div class="bg-based w-full rounded p-3 mt-2">
                         <div class="input-group">
                             <label class="label">Program Member</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                            <input class="input" autocomplete="off" (keyup)="member($event)">
                             <div></div>
                         </div>
                     </div>
-                    
-                    <div class="bg-based w-full rounded p-3 mt-2">
-                        <div class="input-group">
-                            <label class="label">Program Member</label>
-                            <input autocomplete="off" name="Email" id="Email" class="input" type="text">
-                            <div></div>
-                        </div>
-                    </div>
-                    <button class="btn-primary mt-2">
+                    <button class="btn-primary mt-2" (click)="programs_data()">
                         Post
                     </button>
                     <br><br>
@@ -155,9 +147,9 @@
                             <strong class="text-primary text-[20px] font-extrabold">List of Programs</strong>
                         </div>
                         <!-- table -->
-                        <div class="w-full h-[360px] bg-based rounded overflow-y-auto scrollbar-hide">
-                            <table class="border-collapse table-auto w-full">
-                                <thead class="w-full">
+                        <div class="w-full h-[360px] bg-based rounded overflow-auto ... scrollbar-hide border-separate border-spacing-2 border border-slate-500 ..." >
+                            <table class="border-collapse table-auto w-full ">
+                                <thead class="w-full ">
                                     <tr class="flex items-center p-2 border-b border-[#05060f0a]/50">
                                         <td class="flex items-center w-full"><strong>Program Title</strong></td>
                                         <td class="flex items-center w-full"><strong>Place</strong></td>
@@ -167,7 +159,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="w-full">
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out" *ngFor="let x of programs">
+                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out " *ngFor="let x of programs">
                                         <td class="flex items-center w-full">{{x.ProgramTitle}}</td>
                                         <td class="flex items-center w-full">{{x.Place}}</td>
                     

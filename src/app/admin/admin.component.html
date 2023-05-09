@@ -61,7 +61,7 @@
                     <div></div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <p>Manalad Julius</p>
+                    <p *ngFor="let data of firstname" class="text-[15px] font-bold capitalize">{{data.FName}}</p>
                     <img class="w-[50px] h-[50px] rounded-full" src="assets/image/profile.jpg">
                 </div>
             </div>
@@ -75,7 +75,7 @@
                                 <img src="assets/image/faculty.png" width="80px">
                                 <div>
                                     <p>Faculty</p>
-                                    <strong>50++</strong>
+                                    <strong>{{faculty_total}}</strong>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3 p-4 w-[250px] bg-based mt-2 rounded-[10px]">   
@@ -115,10 +115,10 @@
                               </tr>
                             </thead>
                           
-                            <tbody *ngFor="let x of users">
+                            <tbody>
                               <tr>
                                 <th scope="row"> Jan </th>
-                                <td style="--size: 0.3;"> <span class="data">{{x.id}} </span> </td>
+                                <td style="--size: 0.3;"> <span class="data">{{faculty_total}}</span> </td>
                               </tr>
                               <tr>
                                 <th scope="row"> Feb </th>
@@ -134,7 +134,7 @@
                               </tr>
                               <tr>
                                 <th scope="row"> May </th>
-                                <td style="--size: 0.65;"> <span class="data"> 65 </span> </td>
+                                <td style="--size: 0.65;"> <span class="data">{{faculty_total}}</span> </td>
                               </tr>
                               <tr>
                                 <th scope="row"> Jun </th>

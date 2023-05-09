@@ -73,53 +73,50 @@
                         </div>
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
                             <div class="input-group w-full">
-                                <label class="label">Company Name</label>
-                                <input autocomplete="off" name="Email" id="Email" class="input" type="text">
+                                <label class="label">Contact Person</label>
+                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.ContactPerson">
                                 <div></div>
                             </div>
                             <div class="input-group w-full">
                                 <label class="label">Contact#</label>
-                                <input autocomplete="off" class="input" type="text">
+                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.ContactNumber">
                                 <div></div>
                             </div>
                         </div>
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
                             <div class="input-group w-full">
                                 <label class="label">Partnership Start</label>
-                                <input autocomplete="off" name="Email" id="Email" class="input" type="datetime-local">
+                                <input autocomplete="off" id="start_calendar" class="input" type="date">
                                 <div></div>
                             </div>
                             <div class="input-group w-full">
                                 <label class="label">Partnership Expiration</label>
-                                <input autocomplete="off" class="input" type="datetime-local">
+                                <input autocomplete="off" id="end_calendar" class="input" type="date">
                                 <div></div>
                             </div>
                         </div>
 
                         <div class="bg-based w-full p-2 rounded">
                             <div class="input-group">
-                                <label class="label">Contact Person</label>
-                                <input autocomplete="off" class="input" type="text">
+                                <label class="label">Company Name</label>
+                                <input autocomplete="off" class="input" type="text" [(ngModel)]="this.Partnername">
                                 <div></div>
                             </div>
                         </div>
-                        <div class="bg-based w-full p-2 rounded">
-                            <div class="input-group">
-                                <label class="label">Address</label>
-                                <input autocomplete="off" class="input" type="text">
+                        <div class="bg-based w-full p-2 rounded flex justify-center gap-3">
+                            <div class="input-group w-full">
+                                <label class="label">MOA</label>
+                                <input autocomplete="off" class="input" type="file">
+                                <div></div>
+                            </div>
+                            <div class="input-group w-full">
+                                <label class="label">Company Profile</label>
+                                <input autocomplete="off" class="input" type="file">
                                 <div></div>
                             </div>
                         </div>
-                        <div class="bg-based w-full p-2 rounded">
-                            <div class="input-group">
-                                <label class="label">Company Details</label>
-                                <textarea type="text"></textarea>
-                                <div></div>
-                            </div>
-                        </div>
-
                         <div class="bg-based w-full p-2 rounded flex justify-center gap-3 mt-2">
-                            <button class="btn-primary">
+                            <button class="btn-primary" (click)="addpartner()">
                                 Submit
                             </button>
                         </div>
@@ -131,21 +128,22 @@
                         <p class="text-[20px] font-extrabold">List of Partnership</p>
                     </div>
                     <div class="w-full mt-3 h-full overflow-y-auto scrollbar-hide">
-                        <table class="border-collapse w-full ">
-                            <tr class="w-full bg-based rounded-[10px] p-2 flex items-center gap-2" *ngFor="let x of partners">
-                                <td class="table-part w-[20%]">
-                                    <img src="assets/image/acc.png" width="50px">
+                        
+                        <table class="border-collapse w-full flex flex-col gap-3">
+                            <tr class="w-full bg-based rounded-[10px] p-2 flex items-center gap-2" *ngFor="let x of partners" id="btn_value">
+                                <td class="table-part w-[20%] mt-3">
+                                    <img src="assets/image/Accenture-Emblem.png" width="50px">
                                 </td>
                                 <td class=" w-full flex flex-col p-1 text-[12px] overflow-hidden ">
                                     <strong>{{x.PartnerName}}</strong>
                                     <p>{{x.ContactPerson}}</p>
                                 </td>
-                                <td class="table-part w-[20%]">
-                                    <button class="btn-primary">. . .</button>
+                                <td class="table-part w-[20%]" >
+                                    <button class="btn-primary" (click)="seemore(x.PartnerId)">. . .</button>
                                 </td>
                             </tr>
                             
-                            <div class="mt-2"></div>
+                           <br>
 
                         </table>
                     </div>
