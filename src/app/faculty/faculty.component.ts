@@ -22,23 +22,31 @@ export class FacultyComponent implements OnInit{
     const header = new HttpHeaders({
       'Accept':'application/json'
     })
-    this.http.get("http://127.0.0.1:8000/api/faculty/"+this.id+"/assigned-programs",{headers:header})
+    // this.http.get("http://127.0.0.1:8000/api/faculty/"+this.id+"/assigned-programs",{headers:header})
+    // .subscribe((data:any)=>{
+    //   this.program = data
+    // })
+
+    this.http.get("http://127.0.0.1:8000/api/programs",{headers:header})
     .subscribe((data:any)=>{
       this.program = data
+      console.log(this.program)
     })
+
     this.http.get("http://127.0.0.1:8000/api/faculty/"+this.id+"/profile",{headers:header})
     .subscribe((response:any)=>{
-
+      console.log(response)
      this.firstname = response
 
     })
   }
 
-  modal():void {
-
-    this.dialog.open<string>(MoreInfoComponent);
-  }
   
+  moreinfo(value_new_id:any){
+    console.log(value_new_id)
+    sessionStorage.setItem("Extension_Id", value_new_id)
+    this.dialog.open(MoreInfoComponent)
+}
   partners(){
     this.route.navigate(["faculty-partners"])
   }

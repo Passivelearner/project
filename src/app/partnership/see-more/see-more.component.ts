@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SeeMoreComponent implements OnInit{
 
   user_id:string ="";
+  partners_data:any
 
   constructor(private http:HttpClient){}
 
@@ -18,6 +19,7 @@ export class SeeMoreComponent implements OnInit{
     this.http.get("http://127.0.0.1:8000/api/partners/"+this.user_id)
     .subscribe((response)=>{
       console.log(response)
+      this.partners_data = response
     })
   }
 

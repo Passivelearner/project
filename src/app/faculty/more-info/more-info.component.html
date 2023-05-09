@@ -1,5 +1,44 @@
-<div>
-    <div>
-        <p>sasadas</p>
+<div class="w-full bg-based rounded-[10px] p-5" *ngFor="let data of program_data">
+    <div class="w-full flex justify-center items-center p-5">
+        <label class="text-[30px] font-extrabold uppercase ">{{data.ProgramTitle}}</label>
+    </div>
+    <div class="flex items-center justify-center gap-5 w-full" >
+        <div class="w-[50%]">
+            <div>
+                <strong>Program Place</strong>
+                <p>{{data.Place}}</p>
+            </div>
+            <div *ngFor="let lead_data of data.ProgramLead">
+                <strong>Program Lead</strong>
+                <p>{{lead_data.FName}}</p>
+            </div>
+            <div >
+                <strong>Program Members</strong><br>
+                <p *ngFor="let x of data.ProgramMembers" class="inline-block">{{x.FName}},&nbsp;</p>
+            </div>
+        </div>
+        <div class="w-[50%]">
+            <div *ngFor="let y of data.Partner">
+                <strong>Partners Company</strong>
+                <p>{{y.PartnerName}}</p>
+            </div>
+            <div>
+                <strong>Start_Date</strong>
+                <p>{{data.Start_Date}}</p>
+            </div>
+            <div>
+                <strong>End_Date</strong>
+                <p>{{data.End_Date}}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <hr>
+    <div class="w-[600px] mt-4">
+        <div >
+            <strong>Program Details</strong>
+            <p>{{data.Program_Details}}</p>
+        </div>
     </div>
 </div>

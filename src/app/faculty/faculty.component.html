@@ -64,14 +64,14 @@
                     <!-- dropdown -->
                 </div>
             </div>
-            <div class="grid grid-cols-5 gap-4 p-8 ..." >
+            <div class="grid grid-cols-5 gap-4" >
                 <form  *ngFor="let x of program">
-                    <div class="card pb-8">
+                    <div class="card pb-8 mt-4">
                         <div class="card-details ">
                           <p class="text-title capitalize pb-1" >{{x.ProgramTitle}}</p>
                           <p class="text-body overflow-hidden">{{x.Program_Details}}</p>
                         </div>
-                        <button class="card-button " (click)="modal()">More info</button>
+                        <button class="card-button " (click)="moreinfo(x.ExtensionProgramId)">More info</button>
                     </div>
                 </form>
             </div>

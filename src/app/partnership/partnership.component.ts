@@ -18,6 +18,7 @@ export class PartnershipComponent implements OnInit{
   MOA:any;
   Start_Date:any;
   End_Date:any;
+  MOA_DATA:any;
   PartnerImage:any;
 
   value_new_id:any;
@@ -40,6 +41,11 @@ export class PartnershipComponent implements OnInit{
     this.Start_Date = start_date
     let end_date = document.getElementById("end_calendar")
     this.End_Date = end_date
+
+    let MOAFILE = document.getElementById("MOA_FILE")
+    this.MOA_DATA = MOAFILE
+    console.log(this.MOA_DATA.value)
+
     const heading = new HttpHeaders({
       'Account':'application/json'
     })
@@ -47,10 +53,10 @@ export class PartnershipComponent implements OnInit{
       "PartnerName":this.Partnername,
       "ContactPerson":this.ContactPerson,
       "ContactNumber":this.ContactNumber,
-      "MOA": "https://via.placeholder.com/360x360.png/CCCCCC?text=animals+dogs+quia",
+      "MOA":  this.MOA_DATA,
       "Start_Date": this.Start_Date.value,
       "End_Date": this.End_Date.value,
-      "PartnerImage": "/profile/default.jpg"     
+      "PartnerImage": this.MOA_DATA     
     }
     this.http.post("http://127.0.0.1:8000/api/partners/addpartner",body,{headers:heading})
     .subscribe((response:any)=>{
