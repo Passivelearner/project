@@ -5,6 +5,7 @@ import { MoreInfoComponent } from '../faculty/more-info/more-info.component';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { UpdateProfileComponent } from '../faculty/update-profile/update-profile.component';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-faculty',
   templateUrl: './faculty.component.html',
@@ -17,7 +18,7 @@ export class FacultyComponent implements OnInit{
   firstname:any;
   lastname:string = "";
     
-  constructor(public route:Router, private http:HttpClient, public dialog:Dialog){}
+  constructor(public route:Router, private http:HttpClient, public dialog:Dialog, private _auth: AuthService){}
   ngOnInit(){
     this.id = sessionStorage.getItem("id")as string
     const header = new HttpHeaders({
@@ -28,8 +29,9 @@ export class FacultyComponent implements OnInit{
     //   this.program = data
     // })
 
-    this.http.get("http://127.0.0.1:8000/api/programs",{headers:header})
+    this.http.get<any>(this._auth.apiUrl + "/faculty/assigned-programs", this._auth.headers)
     .subscribe((data:any)=>{
+      console.log(data)
       this.program = data
       this.filteredprogram = data
       console.log(this.program)

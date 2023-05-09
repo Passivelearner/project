@@ -12,10 +12,11 @@ export class AuthService {
   public userRole: null | string =  localStorage.getItem('UserRole');
 
   public get headers(){
-    return new HttpHeaders({
-      'Accept':'application/json',
-      Authorization : `Bearer ${this.token}`
-    })
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`,
+      }),
+    };
   }
 
 }

@@ -30,6 +30,8 @@ export class PartnershipComponent implements OnInit{
   value_new_id:any;
   constructor(public route:Router, private http:HttpClient, private _auth: AuthService, public dialog:Dialog){}
   ngOnInit(){
+    console.log('Users')
+      console.log('Token:' + this._auth.token)
     this.http.get<any>(this._auth.apiUrl + '/partners')
       .subscribe(data => { console.log(data); this.partners=data }, error => { console.log(error) })
 

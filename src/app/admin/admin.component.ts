@@ -19,10 +19,12 @@ constructor(public route:Router , private http:HttpClient, private _auth: AuthSe
 
 ngOnInit(): void {
 
+  console.log(this._auth.token)
+
   this.http.get<any>('http://127.0.0.1:8000/api/admin/users')
     .subscribe((data:any) => {
       console.log('Users')
-      console.log(data)
+      console.log('Token:' + this._auth.token)
       this.faculty_total = data.length
     }, error => { console.log(error) })
 

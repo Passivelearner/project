@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './update-info.component.html',
   styleUrls: ['./update-info.component.scss']
 })
-export class UpdateInfoComponent implements OnInit{
+export class UpdateInfoComponent {
   
   constructor(private _auth: AuthService, private http: HttpClient) {}
 
@@ -23,10 +23,6 @@ export class UpdateInfoComponent implements OnInit{
   MStatus = new FormControl('');
 
 
-
-  ngOnInit(){
-    
-  }
 
   updateUserInfo(){
     const userId = localStorage.getItem('UpdateId');

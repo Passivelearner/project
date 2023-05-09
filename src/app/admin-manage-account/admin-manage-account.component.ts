@@ -19,6 +19,8 @@ export class AdminManageAccountComponent implements OnInit{
     dialogInstance : any = null;
     constructor(public route:Router, private http:HttpClient, public dialog:Dialog, private _auth: AuthService){}
     ngOnInit(){
+      console.log('Users')
+      console.log('Token:' + this._auth.token)
       this.http.get<any>(this._auth.apiUrl + '/admin/users')
         .subscribe(data => {
           console.log(data);

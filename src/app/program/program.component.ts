@@ -27,6 +27,9 @@ export class ProgramComponent implements OnInit{
   constructor(public route:Router, private http:HttpClient, private _auth: AuthService){}
 
   ngOnInit(){
+
+    console.log('Users')
+      console.log('Token:' + this._auth.token)
     this.http.get<any>(this._auth.apiUrl + '/programs')
       .subscribe(data => { 
         console.log(data); 
