@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class ViewDetailsComponent {
 
-  user_id:string ="";
+  user_id:string = "";
   partners_data:any
 
   constructor(private http:HttpClient, public auth:AuthService){}
@@ -28,4 +28,39 @@ export class ViewDetailsComponent {
     })
   }
 
+  generatePartnerSpecific(){
+    this.http
+    .get<any>(
+      this.auth.apiUrl +
+        '/getPartnerSummary/' + sessionStorage.getItem("partner_id"),
+      this.auth.headers
+    )
+    .subscribe(
+      (data) => {
+        console.log(data);
+        const byteArray = new Uint8Array(
+          atob(data.pdf)
+            .split('')
+            .map((char) => char.charCodeAt(0))
+        );
+        const file = new Blob([byteArray], { type: 'application/pdf' });
+        const fileURL = URL.createObjectURL(file);
+        let pdfName = 'reports.pdf';
+        let newVariable: any = window.navigator;
+        if (newVariable && newVariable.msSaveOrOpenBlob) {
+          newVariable.msSaveOrOpenBlob(file, pdfName);
+        } else {
+          window.open(
+            fileURL,
+            'newWin',
+            'modal=yes,width=800,height=1000,resizable=no,scrollbars=no'
+          );
+        }
+      },
+      (error) => {
+        console.error(error);
+        console.log('error');
+      }
+    );
+  }
 }
