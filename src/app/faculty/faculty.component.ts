@@ -67,4 +67,7 @@ export class FacultyComponent implements OnInit{
   }
 
 
+  logout(){
+    this.route.navigate(['/'])
+  }
 }

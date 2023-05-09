@@ -68,4 +68,8 @@ export class AdminManageAccountComponent implements OnInit{
           })
         }
       }
+
+      logout(){
+        this.route.navigate(['/'])
+      }
 }

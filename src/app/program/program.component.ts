@@ -96,4 +96,8 @@ export class ProgramComponent implements OnInit{
   member(event:any){
     this.program_partner=event.target.value
   }
+
+  logout(){
+    this.route.navigate(['/'])
+  }
 }

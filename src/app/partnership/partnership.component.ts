@@ -85,4 +85,8 @@ export class PartnershipComponent implements OnInit{
     this.ImageToUpload = file;
   }
 
+  logout(){
+    this.route.navigate(['/'])
+  }
+
 }
