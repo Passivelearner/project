@@ -1,0 +1,47 @@
+<body class="w-full bg-based rounded-[10px]">
+    <form>
+        <div class="flex justify-center items-center w-full bg-primary p-5 rounded-t-lg">
+            <strong class="text-based text-[20px] font-extrabold">Partner Details</strong>
+        </div>
+       
+        <div class="flex justify-center items-center w-full gap-8 p-4">
+            <div>
+                <div class="w-[200px] h-[200px] object-cover">
+                    <img class ="rounded-[50%] w-full h-full" src = "assets\image\profile.jpg">
+                </div>
+            </div>
+            <!-- details -->
+            <div>
+                <div *ngFor="let data of partners_data">
+                    <div class="flex justify-between items-center">
+                        <div class="flex flex-col justify-around">
+                            <div>
+                                <strong>Company Name</strong>
+                                <p>{{data.PartnerName}}</p>
+                            </div>
+                            <div>
+                                <strong>Start Date</strong>
+                                <p>{{data.Start_Date}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col justify-around">
+                            <div>
+                                <strong>Contact Person</strong>
+                                <p>{{data.ContactPerson}}</p>
+                            </div>
+                            <div>
+                                <strong>End Date</strong>
+                                <p>{{data.End_Date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[400px]">
+                        <strong>MOA_URL</strong>
+                        <p>{{data.MOAFileURL}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

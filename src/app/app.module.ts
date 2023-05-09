@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateInfoComponent } from './admin-manage-account/update-info/update-info.component';
 import { UpdateProfileComponent } from './faculty/update-profile/update-profile.component';
 import { SeeMoreComponent } from './partnership/see-more/see-more.component';
+import { ViewDetailsComponent } from './faculty-partners/view-details/view-details.component';
 
 
 
@@ -40,6 +41,7 @@ import { SeeMoreComponent } from './partnership/see-more/see-more.component';
     UpdateInfoComponent,
     UpdateProfileComponent,
     SeeMoreComponent,
+    ViewDetailsComponent,
 
   ],
   imports: [
