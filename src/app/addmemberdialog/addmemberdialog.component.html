@@ -1,0 +1,23 @@
+<body class="w-full p-10 rounded-[10px] bg-based">
+    <div>
+        <strong class="text-[20px] ">Update Information</strong>
+        <div>
+            <form class="w-full">
+               
+                <div class="w-full flex justify-between gap-2" style="width: 120px;">
+                    <div class="input-group w-full">
+                        <label class="label">Add Member:</label>
+                        <select id="stats" style="width:200px" class="bg-none input" [formControl]="Faculty">
+                            <option *ngFor="let f of FacultyList" value="{{f.id}}">{{f.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full flex justify-center mt-3">
+                    <button class="btn-primary w-full" (click)="AddMember()">
+                        Add Member
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

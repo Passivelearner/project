@@ -26,5 +26,7 @@ export class SeeMoreComponent implements OnInit{
     })
   }
 
-  
+  renew(){
+    
+  }
 }

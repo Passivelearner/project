@@ -162,7 +162,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="w-full">
-                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out " *ngFor="let x of programs">
+                                    <tr class="flex items-center p-2 border-b border-[#05060f0a]/50 hover:opacity-100 hover:bg-[#05060f0a] transition duration-300 ease-in-out " *ngFor="let x of programs" (click)="addMember(x.ExtensionProgramId)" >
                                         <td class="flex items-center w-full">{{x.ProgramTitle}}</td>
                                         <td class="flex items-center w-full">{{x.Place}}</td>
                     

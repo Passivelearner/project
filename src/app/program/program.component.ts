@@ -4,6 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { UpdateInfoComponent } from '../admin-manage-account/update-info/update-info.component';
+import { AddmemberdialogComponent } from '../addmemberdialog/addmemberdialog.component';
 
 @Component({
   selector: 'app-program',
@@ -24,7 +27,7 @@ export class ProgramComponent implements OnInit{
   PartnerDropDownValues : any;
   
   
-  constructor(public route:Router, private http:HttpClient, private _auth: AuthService){}
+  constructor(public route:Router,public dialog:Dialog,  private http:HttpClient, private _auth: AuthService){}
 
   ngOnInit(){
 
@@ -138,5 +141,11 @@ export class ProgramComponent implements OnInit{
           console.log('error');
         }
       );
+  }
+
+  addMember(id: string){
+    console.log(id)
+    localStorage.setItem('AddMemberExtensionId', id); 
+    this.dialog.open(AddmemberdialogComponent);
   }
 }

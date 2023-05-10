@@ -25,6 +25,7 @@ import { ViewDetailsComponent } from './faculty-partners/view-details/view-detai
 import { AuthService } from './auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AddmemberdialogComponent } from './addmemberdialog/addmemberdialog.component';
 
 
 
@@ -45,6 +46,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     UpdateProfileComponent,
     SeeMoreComponent,
     ViewDetailsComponent,
+    AddmemberdialogComponent,
 
   ],
   imports: [
